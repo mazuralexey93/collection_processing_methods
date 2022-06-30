@@ -3,14 +3,14 @@
 Показывает список всех репозиториев ползователя
 * Показывает список только с первой страницы (т.е ограничение 30)
 
-* curl https://api.github.com/users/mazuralexey93/repos >> curl_repos_list.json
+* curl https://api.github.com/users/miguelgrinberg/repos > curl_repos_list.json
 
 """
 
 import requests
 import json
 
-params = {'login': 'mazuralexey93',
+params = {'login': 'miguelgrinberg',
           'private': False}
 
 url_repos = f"https://api.github.com/users/{params['login']}/repos"

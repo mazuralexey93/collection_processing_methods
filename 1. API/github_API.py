@@ -26,12 +26,12 @@ def show_repos_list():
         if len(j_data_repos) == 0:
             break
         for repo in j_data_repos:
-            print(repo.get('html_url'))
-            params['page'] += 1
-            print(params['page'])
+            print(repo['html_url'])
+        params['page'] += 1
+        print(params['page'])
 
-            with open('json_data.json', 'a+') as outfile:
-                json.dump(j_data_repos, outfile, indent=2)
+        with open('json_data.json', 'a+') as outfile:
+            json.dump(j_data_repos, outfile, indent=2)
 
 
 if __name__ == "__main__":

@@ -45,7 +45,6 @@ def search_vacancies_hh():
 
     added_counter = 0
     skipped_counter = 0
-    id_counter = 1
 
     for i in range(last_page):
         params['page'] = i
@@ -53,7 +52,6 @@ def search_vacancies_hh():
 
         for vacancy in vacancies:
             vacancy_data = {}
-            id_counter += 1
 
             salary_max, salary_min, salary_cur = None, None, None
 
@@ -83,7 +81,7 @@ def search_vacancies_hh():
             vacancy_data['salary_max'] = salary_max
             vacancy_data['salary_min'] = salary_min
             vacancy_data['salary_cur'] = salary_cur
-            vacancy_data['_id'] = id_counter
+            vacancy_data['_id'] = link
 
             vacancy_list.append(vacancy_data)
 

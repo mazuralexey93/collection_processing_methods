@@ -44,12 +44,13 @@ def mvidep_dynamic_content_parser():
             time.sleep(1)
 
     carousel = driver.find_element(By.XPATH, "//mvid-carousel[contains(@class, 'carusel ng-star')]")
-
-    price = carousel.find_elements(By.XPATH, "//mvid-carousel[contains(@class, 'carusel ng-star')]//div[contains(@class, 'price')]//span[@class='price__main-value']")
+    items = carousel.find_elements(By.XPATH, "//mvid-carousel[contains(@class, 'carusel ng-star')]//div[@class = 'title']")
+    price = driver.find_elements(By.XPATH, "//mvid-carousel[contains(@class, 'carusel ng-star')]\n"
+                                             "//div[contains(@class, 'price')]//span[@class='price__main-value']")
     title = carousel.find_elements(By.XPATH, ".//div[contains(@class, '_name')]")
     link = carousel.find_elements(By.XPATH, ".//a")
 
-    for i in range(len(title)):
+    for i in range(len(items)):
         good = {
             'title': title[i].text,
             'link': link[i].get_attribute('href'),
@@ -63,5 +64,7 @@ def mvidep_dynamic_content_parser():
             print(f' {good["_id"]} Already exists!')
 
     driver.close()
+
+
 if __name__ == "__main__":
     mvidep_dynamic_content_parser()
